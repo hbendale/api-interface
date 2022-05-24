@@ -106,4 +106,4 @@ def delete(id):
             return "No Employee found!"
     return "Invalid request method! Please use DELETE method to delete Employee data."
 
-app.run(host='localhost', port=5000)
+app.run(host='0.0.0.0', port=5000)
