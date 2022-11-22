@@ -1,1 +1,2 @@
 fastapi==0.87.0
+strawberry-graphq==0.142.2
