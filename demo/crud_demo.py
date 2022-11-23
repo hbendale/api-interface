@@ -64,7 +64,7 @@ async def _create(person: Person):
     except ValueError:
         raise HTTPException(status_code=400, detail=f"person already exists")
         
-@app.get("/read/", response_model=PersonRepresentation)
+@app.get("/read/{id}", response_model=PersonRepresentation)
 async def _read(id: int):
     try:
         return data.read(id=id)

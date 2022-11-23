@@ -1,0 +1,9 @@
+openapi: 3.0.0
+info:
+  title: Lucky Number
+  description: Simple API to get your lucky number for today!
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Localhost for testing
+paths:
