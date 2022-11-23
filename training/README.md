@@ -31,6 +31,8 @@ by calling this endpoint with a mandatory parameter 'name' an response is expect
     
 if the parameter 'name' is omitted a status code 404 is expected
 
+usefull link for fastapi: https://fastapi.tiangolo.com/tutorial/path-params/
+
 
 
 # Task 3:
@@ -46,6 +48,7 @@ by calling this endpoint with a mendatory header 'n' an response is expected lik
     
 consider using the backend feature 'day_calculator.get_weekday_in_n_days(n)'
 
+usefull link for fastapi: https://fastapi.tiangolo.com/tutorial/query-params/
 
 
 # Task 4:
@@ -60,6 +63,9 @@ by calling this endpoint with the mandatory baseAuth header (username: DiveIn pa
 if no valid username and/or password are provided a status code 401 is expected with the hint that username/password is invalid
     
 consider implementing user_loader() with check for DiveIn:1234
+
+usefull link for fastapi: https://fastapi.tiangolo.com/advanced/security/http-basic-auth/
+
 
 # Task 5
 
