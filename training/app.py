@@ -3,6 +3,7 @@ from fastapi import FastAPI, HTTPException, Depends
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 
 app = FastAPI()
+security = HTTPBasic()
 
 data = employee.EmployeeDB()
 
@@ -25,12 +26,12 @@ async def _lucky_number():
     consider using the backend feature 'magic_numbers.get_magic_number()'
     
     """
-    return "Implement me!"
+    return f"Your lucky number for the day is: {magic_numbers.get_magic_number()}"
 
 
 
 @app.get("/greetings/{name}")
-async def _greetings():
+async def _greetings(name: str):
     """
     Task 2:
     
@@ -43,11 +44,11 @@ async def _greetings():
     if the parameter 'name' is omitted a status code 404 is expected
     
     """
-    return "Implement me!"
+    return f"Welcome {name}"
 
 
 @app.get("/weekday_calculator/")
-async def _weekday_calculator():
+async def _weekday_calculator(n: int):
     """
     Task 3:
     
@@ -63,19 +64,21 @@ async def _weekday_calculator():
     consider using the backend feature 'day_calculator.get_weekday_in_n_days(n)'
     
     """
-    return "Implement me!"
+    return f"{n} days from now is a {day_calculator.get_weekday_in_n_days(n)}"
 
 
 def user_loader(username, password):
     user = {"DiveIn": "1234", "Chris":"hello"}
 
-    # implement me
+    if user.get(username):
+        if password == user.get(username):
+            return {'username': username}
 
     return None
 
 
 @app.get("/login/")
-async def _login():
+async def _login(credentials: HTTPBasicCredentials = Depends(security)):
     """
     Task 4:
 
@@ -91,7 +94,10 @@ async def _login():
     consider implementing user_loader() with check for DiveIn:1234
     
     """
-    return "Implement me!"
+    if user_loader(credentials.username, credentials.password):
+        return "Login successful!"
+        
+    raise HTTPException(status_code=401, detail=f"No valid username/password!")
 
 
 db = employee.EmployeeDB()
@@ -130,11 +136,11 @@ async def _employee():
     consider using the backend feature 'db.get_all()'
     
     """
-    return "Implement me!"
+    return db.get_all()
 
 
 @app.post("/employee/", response_model=employee.Employee)
-async def _create_employee():
+async def _create_employee(employee: employee.Employee):
     """
     Create
 
@@ -161,11 +167,11 @@ async def _create_employee():
     consider using the backend feature 'db.create(employee=employee)'
     
     """
-    return "Implement me!"
+    return db.create(employee=employee)
 
 
 @app.get("/employee/{id}", response_model=employee.Employee)
-async def _read_employee():
+async def _read_employee(id: int):
     """
     Read
 
@@ -184,11 +190,14 @@ async def _read_employee():
     consider using the backend feature 'db.read(id=id)'
     
     """
-    return "Implement me!"
+    try:
+        return db.read(id=id)
+    except:
+        raise HTTPException(status_code=404, detail=f"employee with id: {id} not found!")
     
     
 @app.put("/employee/{id}", response_model=employee.Employee)
-async def _update_employee():
+async def _update_employee(id: int, employee: employee.Employee):
     """
     Update
 
@@ -217,11 +226,14 @@ async def _update_employee():
     consider using the backend feature 'db.update(id=id, employee=employee)'
     
     """
-    return "Implement me!"
+    try:
+        return db.update(id=id, employee=employee)
+    except:
+        raise HTTPException(status_code=404, detail=f"employee with id: {id} not found!")
 
 
 @app.delete("/employee/{id}", response_model=employee.Employee)
-async def _delete_employeelogin():
+async def _delete_employeelogin(id: int):
     """
     Delete
 
@@ -240,4 +252,7 @@ async def _delete_employeelogin():
     consider using the backend feature 'db.delete(id=id)'
     
     """
-    return "Implement me!"
+    try:
+        return db.delete(id=id)
+    except:
+        raise HTTPException(status_code=404, detail=f"employee with id: {id} not found!")
