@@ -58,7 +58,7 @@ usefull link for fastapi: https://fastapi.tiangolo.com/tutorial/header-params/
 
     GET /login/
     
-by calling this endpoint with the mandatory baseAuth header (username: DiveIn password: 1234) an response is expected like
+by calling this endpoint with the mandatory baseAuth header (username: DiveIn password: 1234) a response is expected like
     
     200 Login successful!
     
@@ -121,7 +121,7 @@ a response is expected like
         }
 
 if the endpoint is called without payload a status code 422 is expected with some information on the needed payload
-if the key 'age' is not a valid int a status code 422 is expected with some information on the expexted data type
+if the key 'age' is not a valid int a status code 422 is expected with some information on the expected data type
 
 consider using the backend feature 'db.create(employee=employee)'
 
@@ -164,7 +164,7 @@ a response is expected like
         }
 
 if the endpoint is called without payload a status code 422 is expected with some information on the needed payload
-if the path parameter 'age' or 'id' is not a valid int a status code 422 is expected with some information on the expected data type
+if the path parameter 'id' or key 'age' is not a valid int a status code 422 is expected with some information on the expected data type
 if the resource for the path parameter 'id' is not found in the backend a status code 404 is expected with some information on the missing resource
 
 consider using the backend feature 'db.update(id=id, employee=employee)'
@@ -182,6 +182,6 @@ by calling this endpoint with 'id' a response is expected like
             "age": 99
         }
 
-if the resource for the pathparameter 'id' is not found in the backend a status code 404 is expected with some information on the missing resource
+if the resource for the path parameter 'id' is not found in the backend a status code 404 is expected with some information on the missing resource
 
 consider using the backend feature 'db.delete(id=id)'
