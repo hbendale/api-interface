@@ -1,7 +1,7 @@
 # Training
 This repo hosts code for deep dive training session
 
-## run application with
+## Run application with
     uvicorn app:app --host 0.0.0.0 --port 8080 --reload
     
 open /docs for UI
@@ -179,3 +179,11 @@ by calling this endpoint with 'id' a response is expected like
 
 if the resource for the header 'id' is not found in the backend a status code 204 is expected with some information on the missing resource
 consider using the backend feature 'db.delete(id=id)'
+
+# Introduction to Swagger
+Here is some documentation which we would recommend you to read:
+1. [What is OpenAPI?](https://swagger.io/docs/specification/about/)
+2. [Basic Structure of swagger code](https://swagger.io/docs/specification/basic-structure/)
+3. [Describing Request Body](https://swagger.io/docs/specification/describing-request-body/)
+4. [Describing Responses](https://swagger.io/docs/specification/describing-responses/)
+5. [Basic Authentication](https://swagger.io/docs/specification/authentication/basic-authentication/)

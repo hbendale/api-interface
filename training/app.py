@@ -9,7 +9,7 @@ data = employee.EmployeeDB()
 
 @app.get("/")
 async def _root():
-    return "Hello World"
+    return "Hello and welcome to your deep dive session! You can find the tasks in the README under api-interface/training. Good luck!"
 
 @app.get("/lucky_number/")
 async def _lucky_number():
@@ -18,7 +18,7 @@ async def _lucky_number():
     
     GET /lucky_number/
     
-    by calling this endpoint an response is expected like
+    by calling this endpoint a response is expected like
     
     200 Your lucky number for the day is: 42
     
@@ -36,7 +36,7 @@ async def _greetings():
     
     GET /greetings/
     
-    by calling this endpoint with a mandatory parameter 'name' an response is expected like
+    by calling this endpoint with a mandatory parameter 'name' a response is expected like
     
     200 Welcome DiveIn
     
@@ -53,7 +53,7 @@ async def _weekday_calculator():
     
     GET /weekday_calculator/
     
-    by calling this endpoint with a mendatory header 'n' an response is expected like
+    by calling this endpoint with a mendatory header 'n' a response is expected like
     
     200 5 days from now is a Monday
     
