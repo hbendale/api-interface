@@ -1,6 +1,9 @@
 # Training
 This repo hosts code for deep dive training session
 
+## setup app with
+    pip install –r requirements.txt
+
 ## run application with
     uvicorn app:app --host 0.0.0.0 --port 8080 --reload
     
@@ -29,9 +32,9 @@ by calling this endpoint with a mandatory parameter 'name' an response is expect
     
     200 Welcome DiveIn
     
-if the parameter 'name' is omitted a status code 404 is expected
+if the query parameter 'name' is omitted a status code 404 is expected
 
-usefull link for fastapi: https://fastapi.tiangolo.com/tutorial/path-params/
+usefull link for fastapi: https://fastapi.tiangolo.com/tutorial/query-params/
 
 
 
@@ -43,12 +46,12 @@ by calling this endpoint with a mendatory header 'n' an response is expected lik
     
     200 5 days from now is a Monday
     
-(if the header 'n' is omitted a status code 400 is expected with some details on the missing header)
-(if the header 'n' is not a valid float a status code 400 is expected with some details on expected data type)
+if the header 'n' is omitted a status code 422 is expected with some details on the missing header
+if the header 'n' is not a valid number a status code 422 is expected with some details on expected data type
     
 consider using the backend feature 'day_calculator.get_weekday_in_n_days(n)'
 
-usefull link for fastapi: https://fastapi.tiangolo.com/tutorial/query-params/
+usefull link for fastapi: https://fastapi.tiangolo.com/tutorial/header-params/
 
 
 # Task 4:
@@ -59,7 +62,7 @@ by calling this endpoint with the mandatory baseAuth header (username: DiveIn pa
     
     200 Login successful!
     
-(if the baseAuth header is omitted a status code 401 is expected with some details on the missing baseAuth)
+if the baseAuth header is omitted a status code 401 is expected with some details on the missing baseAuth
 if no valid username and/or password are provided a status code 401 is expected with the hint that username/password is invalid
     
 consider implementing user_loader() with check for DiveIn:1234
@@ -117,8 +120,8 @@ a response is expected like
             "age": 42
         }
 
-(if the endpoint is called without payload a status code 400 is expected with some information on the needed payload)
-(if the key 'age' is not a valid int a status code 400 is expected with some information on the expexted data type)
+if the endpoint is called without payload a status code 422 is expected with some information on the needed payload
+if the key 'age' is not a valid int a status code 422 is expected with some information on the expexted data type
 
 consider using the backend feature 'db.create(employee=employee)'
 
@@ -135,8 +138,10 @@ by calling this endpoint with the 'id' a response is expected like
             "age": 20
         }
 
-if the id does not correspond to an id in the db a status code 404 is expected with some information that no resource for the id is found    
+if the path parameter 'id' does not correspond to an id in the db a status code 404 is expected with some information that no resource for the id is found    
 consider using the backend feature 'db.read(id=id)'
+
+usefull link for fastapi: https://fastapi.tiangolo.com/tutorial/path-params/
 
 ## Update
 
@@ -158,9 +163,9 @@ a response is expected like
             "age": 99
         }
 
-(if the endpoint is called without payload a status code 400 is expected with some information on the needed payload)
-(if the key 'age' or 'id' is not a valid int a status code 400 is expected with some information on the expexted data type )
-(if the resource for the key 'id' is not found in the backend a status code 404 is expected with some information on the missing resource)
+if the endpoint is called without payload a status code 422 is expected with some information on the needed payload
+if the path parameter 'age' or 'id' is not a valid int a status code 422 is expected with some information on the expected data type
+if the resource for the path parameter 'id' is not found in the backend a status code 404 is expected with some information on the missing resource
 
 consider using the backend feature 'db.update(id=id, employee=employee)'
 
@@ -177,5 +182,6 @@ by calling this endpoint with 'id' a response is expected like
             "age": 99
         }
 
-if the resource for the header 'id' is not found in the backend a status code 204 is expected with some information on the missing resource
+if the resource for the pathparameter 'id' is not found in the backend a status code 404 is expected with some information on the missing resource
+
 consider using the backend feature 'db.delete(id=id)'
