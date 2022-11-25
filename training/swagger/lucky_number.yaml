@@ -1,9 +1,37 @@
 openapi: 3.0.0
 info:
   title: Lucky Number
-  description: Simple API to get your lucky number for today!
+  description: |-
+    Simple API to get your lucky number for today!
+    
+    This file will give you a hint on how to write apis in swagger.
+    For further information on swagger, please refer to the section 'Introduction to Swagger' in the README file.
+    We highly encourage you to write your own apis for further tasks!
   version: 1.0.0
 servers:
   - url: http://localhost:8080
     description: Localhost for testing
 paths:
+  /lucky_number/:
+    get:
+      summary: ' Lucky Number'
+      description: |-
+        Task 1:
+        
+        GET /lucky_number/
+        
+        by calling this endpoint a response is expected like:
+        
+        200 Your lucky number for the day is: 42
+        
+        consider using the backend feature 'magic_numbers.get_magic_number()'
+      operationId: _lucky_number_lucky_number__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {
+                type: string
+                example: Your lucky number for the day is: 42
+              }
