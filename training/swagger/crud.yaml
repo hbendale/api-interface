@@ -1,10 +1,165 @@
 openapi: 3.0.0
 info:
   title: CRUD
-  description: Simple API to test CRUD
+  description: |-
+    Simple API to test CRUD
+    
+    This file will give you a hint on how to write apis in swagger.
+    For further information on swagger, please refer to the section 'Introduction to Swagger' in the README file.
+    We highly encourage you to write your own apis for further tasks!
   version: 1.0.0
 servers:
   - url: http://localhost:8080
     description: Localhost for testing
 paths:
-  
+  /employee/:
+    get:
+      summary: ' Employee'
+      description: |-
+        Read all
+        
+        GET /employee/
+        
+        by calling this endpoint a response is expected like
+        
+        200 [
+              {
+                  "id": 1,
+                  "name": "Alice",
+                  "age": 20
+              },
+              {
+                  "id": 2,
+                  "name": "Bob",
+                  "age": 42
+              },
+              {
+                  "id": 3,
+                  "name": "Charles",
+                  "age": 50
+              }
+          ]
+        
+        consider using the backend feature 'db.get_all()'
+      operationId: _employee_employee__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {
+                $ref: '#/components/schemas/Employees'
+              }
+    post:
+      summary: ' Create Employee'
+      description: |-
+        Create
+        
+        POST /employee/
+        
+        by calling this endpoint with a payload like
+        
+        {
+            "name": "DiveIn",
+            "age": 42
+        }
+        
+        a response is expected like
+        
+        200 {
+                "id": 4
+                "name": "DiveIn",
+                "age": 42
+            }
+        
+        (if the endpoint is called without payload a status code 400 is expected with some information on the needed payload)
+        (if the key 'age' is not a valid int a status code 400 is expected with some information on the expexted data type)
+        
+        consider using the backend feature 'db.create(employee=employee)'
+      operationId: _create_employee_employee__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /employee/{id}:
+    get:
+      summary: ' Read Employee'
+      description: |-
+        Read
+        
+        GET /employee/{id}
+        
+        by calling this endpoint with the 'id' a response is expected like
+        
+        200 {
+                "id": 1,
+                "name": "Alice",
+                "age": 20
+            }
+        
+        if the id does not correspond to an id in the db a status code 404 is expected with some information that no resource for the id is found    
+        
+        consider using the backend feature 'db.read(id=id)'
+      operationId: _read_employee_employee__id__get
+      parameters:
+        - required: true
+          schema:
+            title: Id
+            type: integer
+            example: 1
+          name: id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    Employee:
+      title: Employee
+      required:
+        - name
+        - age
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+          example: 1
+        name:
+          title: Name
+          type: string
+          example: Alice
+        age:
+          title: Age
+          type: integer
+          example: 20
+    Employees:
+      title: Employees
+      type: array
+      items:
+        $ref: '#/components/schemas/Employee'
