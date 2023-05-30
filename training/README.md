@@ -2,12 +2,12 @@
 This repo hosts code for deep dive training session
 
 ## setup app with
-    pip install –r requirements.txt
+    pip install -r requirements.txt
 
 ## run application with
     uvicorn app:app --host 0.0.0.0 --port 8080 --reload
     
-open /docs for UI
+open http://127.0.0.1:8080/docs for UI
 use Preview -> Preview Running Application to access the running webserver
 
 

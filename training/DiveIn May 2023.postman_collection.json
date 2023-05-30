@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "05cfb940-5d54-4967-ae66-46f7e3cf7f23",
-		"name": "DiveIn Now 2022",
+		"_postman_id": "be6777be-efb0-4878-98b1-b25ffb77deb3",
+		"name": "DiveIn May 2023",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -47,7 +47,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{host}}/greetings/?name=d",
+					"raw": "http://{{host}}/greetings/?name=DiveIn",
 					"protocol": "http",
 					"host": [
 						"{{host}}"
@@ -59,7 +59,7 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "d"
+							"value": "DiveIn"
 						}
 					]
 				}
@@ -70,22 +70,21 @@
 			"name": "GET /weekday_calculator/",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "n",
+						"value": "5",
+						"type": "default"
+					}
+				],
 				"url": {
-					"raw": "http://{{host}}/weekday_calculator/?n=5",
+					"raw": "http://{{host}}/weekday_calculator",
 					"protocol": "http",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"weekday_calculator",
-						""
-					],
-					"query": [
-						{
-							"key": "n",
-							"value": "5"
-						}
+						"weekday_calculator"
 					]
 				}
 			},
@@ -314,10 +313,30 @@
 			"response": []
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "host",
-			"value": "52.31.218.118"
+			"value": "127.0.0.1:8080"
 		}
 	]
 }
