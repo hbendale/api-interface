@@ -7,7 +7,7 @@ This repo hosts code for deep dive training session
 ## run application with
     uvicorn app:app --host 0.0.0.0 --port 8080 --reload
     
-open /docs for UI
+open http://127.0.0.1:8080/docs for UI
 use Preview -> Preview Running Application to access the running webserver
 
 
