@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "be6777be-efb0-4878-98b1-b25ffb77deb3",
-		"name": "DiveIn May 2023",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "a8cac2a9-218f-4128-8ddb-13e7da92fe56",
+		"name": "DiveIn June 2024",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11307842"
 	},
 	"item": [
 		{
@@ -11,10 +12,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{host}}/",
-					"protocol": "http",
+					"raw": "{{URL}}/",
 					"host": [
-						"{{host}}"
+						"{{URL}}"
 					],
 					"path": [
 						""
@@ -29,10 +29,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{host}}/lucky_number",
-					"protocol": "http",
+					"raw": "{{URL}}/lucky_number",
 					"host": [
-						"{{host}}"
+						"{{URL}}"
 					],
 					"path": [
 						"lucky_number"
@@ -47,10 +46,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{host}}/greetings/?name=DiveIn",
-					"protocol": "http",
+					"raw": "{{URL}}/greetings/?name=Harshal",
 					"host": [
-						"{{host}}"
+						"{{URL}}"
 					],
 					"path": [
 						"greetings",
@@ -59,7 +57,7 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "DiveIn"
+							"value": "Harshal"
 						}
 					]
 				}
@@ -78,10 +76,9 @@
 					}
 				],
 				"url": {
-					"raw": "http://{{host}}/weekday_calculator",
-					"protocol": "http",
+					"raw": "{{URL}}/weekday_calculator",
 					"host": [
-						"{{host}}"
+						"{{URL}}"
 					],
 					"path": [
 						"weekday_calculator"
@@ -111,10 +108,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{host}}/login/",
-					"protocol": "http",
+					"raw": "{{URL}}/login/",
 					"host": [
-						"{{host}}"
+						"{{URL}}"
 					],
 					"path": [
 						"login",
@@ -145,10 +141,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{host}}/employee/",
-					"protocol": "http",
+					"raw": "{{URL}}/employee/",
 					"host": [
-						"{{host}}"
+						"{{URL}}"
 					],
 					"path": [
 						"employee",
@@ -188,10 +183,9 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{host}}/employee/",
-					"protocol": "http",
+					"raw": "{{URL}}/employee/",
 					"host": [
-						"{{host}}"
+						"{{URL}}"
 					],
 					"path": [
 						"employee",
@@ -222,10 +216,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{host}}/employee/1",
-					"protocol": "http",
+					"raw": "{{URL}}/employee/1",
 					"host": [
-						"{{host}}"
+						"{{URL}}"
 					],
 					"path": [
 						"employee",
@@ -265,10 +258,9 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{host}}/employee/4",
-					"protocol": "http",
+					"raw": "{{URL}}/employee/4",
 					"host": [
-						"{{host}}"
+						"{{URL}}"
 					],
 					"path": [
 						"employee",
@@ -299,10 +291,9 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://{{host}}/employee/4",
-					"protocol": "http",
+					"raw": "{{URL}}/employee/4",
 					"host": [
-						"{{host}}"
+						"{{URL}}"
 					],
 					"path": [
 						"employee",
@@ -336,7 +327,7 @@
 	"variable": [
 		{
 			"key": "host",
-			"value": "127.0.0.1:8080"
+			"value": "18.202.212.13"
 		}
 	]
 }
